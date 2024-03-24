@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generateur labyrinthe</title><meta charset="UTF-8" />
+    <link type="text/css" rel="stylesheet" href="styles/styleLab.css">
+    <link rel="shortcut icon" type="image/png" href="./img/faviconPython.png"/>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</head>
+<body>
+    <header class="bandeau">
+        <nav>
+            <ul>
+                <li><a href="index.html"> Presentation</a></li>
+                <li><a href="index.html">Mes projets</a></li>
+                <li><a href="index.html">Contactez moi</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <h1>Générateur de labyrinthe</h1>
+    <p>Clique sur le bouton et un labyrinthe aleatoire s'affiche</p>
+    <div id="labyrinthe">
+        <div id="panneauConfig">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Largeur : </td>
+                        <td><input type="text" id="labWidth" value="10" maxlength="5"/></td>
+                    </tr>
+                    <tr>
+                        <td>Hauteur : </td>
+                        <td><input type="text" id="labHeight" value="10" maxlength="5"/></td>
+                    </tr>
+                    <tr>
+                        <td>Resoudre : </td>
+                        <td><input type="checkbox" value="off" id="resoudre"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button py-click="afficherLabWilson">Generer</button>
+        </div>
+        <pre id="output"></pre>
+    </div>
+    <script type="py" src="./scripts/main.py" config="./scripts/pyscript.json"></script>
+</body>
+</html>
