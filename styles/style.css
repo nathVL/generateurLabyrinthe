@@ -6,32 +6,6 @@ body, html {
     font-family: 'Roboto', sans-serif;
 }
 
-/* HEADER */
-
-.bandeau {
-    background-color: #282424;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-}
-
-nav ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    list-style: none;
-}
-
-.bandeau li a {
-    text-decoration: none;
-    color: white;
-}
-
-.bandeau li a:hover {
-    color: #ffdc5c;
-}
-
 /* AFFICHAGE LABYRINTHE */
 h1 {
     margin-top: 100px;
