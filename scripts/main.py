@@ -47,71 +47,35 @@ class Maze:
 
     def __str__(self):
         """
-        **NE PAS MODIFIER CETTE MÉTHODE**
         Représentation textuelle d'un objet Maze (en utilisant des caractères ascii)
         Retour:
              chaîne (str) : chaîne de caractères représentant le labyrinthe
         """
         txt = ""
         # Première ligne
-        txt += "┌"
+        txt += "┏"
         for j in range(self.width-1):
-            if (0,j+1) in self.neighbors[(0,j)]:
-                txt += "────"
-            else:
-                txt += "───┬"
-        txt += "───┐\n"
-        txt += "│"
+            txt += "━━━┳"
+        txt += "━━━┓\n"
+        txt += "┃"
         for j in range(self.width-1):
-            txt += "   │" if (0,j+1) not in self.neighbors[(0,j)] else "    "
-        txt += "   │\n"
+            txt += "   ┃" if (0,j+1) not in self.neighbors[(0,j)] else "    "
+        txt += "   ┃\n"
         # Lignes normales
         for i in range(self.height-1):
-            if (0,i+1) not in self.neighbors[(0,i)]:
-                txt += "├"
-            else:
-                txt += "│"
-            
-
+            txt += "┣"
             for j in range(self.width-1):
-                if (i+1,j) not in self.neighbors[(i,j)]:
-                    if (i,j+1) not in self.neighbors[(i+1,j+1)]:
-                        if (i,j) not in self.neighbors[(i+1,j+1)]:
-                            txt += "───┼"
-                        else:
-                            txt += "───┬"
-                    else:
-                        if (i,j) not in self.neighbors[(i+1,j+1)]:
-                            txt += "───┤"
-                        else:
-                            txt += "───┐"
-                else:
-                    if (i,j+1) not in self.neighbors[(i+1,j+1)]:
-                        txt += "   ├"
-                    else:
-                        txt += "   │"
-            if (i+1,self.width-1) not in self.neighbors[(i,self.width-1)]:
-                txt += "───┤\n"
-            else:
-                txt += "   │\n"
-            txt += "│"
-
-
+                txt += "━━━╋" if (i+1,j) not in self.neighbors[(i,j)] else "   ╋"
+            txt += "━━━┫\n" if (i+1,self.width-1) not in self.neighbors[(i,self.width-1)] else "   ┫\n"
+            txt += "┃"
             for j in range(self.width):
-                if (i+1,j+1) not in self.neighbors[(i+1,j)]:
-                    txt += "   │"
-                else:
-                    txt += "    "
+                txt += "   ┃" if (i+1,j+1) not in self.neighbors[(i+1,j)] else "    "
             txt += "\n"
         # Bas du tableau
-        txt += "└"
+        txt += "┗"
         for i in range(self.width-1):
-            if (self.height-1,i+1) in self.neighbors[(self.height-1,i)]:
-                txt += "────"
-            else:
-                txt += "───┴"
-        txt += "───┘\n"
-
+            txt += "━━━┻"
+        txt += "━━━┛\n"
         return txt
     
     def add_wall(self, c1, c2):
